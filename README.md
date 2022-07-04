@@ -1,15 +1,6 @@
-# admin_dashboard
+# Wons
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+An admin dashboard, built with flutter.
 
 ## Build
 ```flutter build web --web-renderer html --release```
@@ -19,7 +10,7 @@ or
 ```flutter build web --web-renderer canvaskit --release```
 
 
-## [Demo](http://)
+## [Demo](https://obkmdashboard.web.app)
 
 
 ## 📸 Banner
@@ -30,6 +21,12 @@ or
 
 <br />
 
+## 🤓 Design Credit
+
+**MALIK ALI**
+(https://maliksali.com)
+
+<br />
 
 ## 🌟❤️ Icon Credit
 [svgrepo](https://www.svgrepo.com/svg/184140/android)
