@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/src/res/font_family.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +12,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wons',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: FontFamily.dmSans),
       home: Container(),
     );
   }
