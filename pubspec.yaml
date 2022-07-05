@@ -60,7 +60,6 @@ flutter:
   assets:
     - assets/png/
     - assets/svg/
-    - assets/font/DM_Sans/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -71,9 +70,9 @@ flutter:
   fonts:
     - family: DMSans
       fonts:
-        - asset: assets/font/DM_Sans/static/DMSans-Bold.ttf
-        - asset: assets/font/DM_Sans/static/DMSans-BoldItalic.ttf
-        - asset: assets/font/DM_Sans/static/DMSans-Italic.ttf
-        - asset: assets/font/DM_Sans/static/DMSans-Medium.ttf
-        - asset: assets/font/DM_Sans/static/DMSans-MediumItalic.ttf
-        - asset: assets/font/DM_Sans/static/DMSans-Regular.ttf
+        - asset: assets/font/DM_Sans/DMSans-Bold.ttf
+        - asset: assets/font/DM_Sans/DMSans-BoldItalic.ttf
+        - asset: assets/font/DM_Sans/DMSans-Italic.ttf
+        - asset: assets/font/DM_Sans/DMSans-Medium.ttf
+        - asset: assets/font/DM_Sans/DMSans-MediumItalic.ttf
+        - asset: assets/font/DM_Sans/DMSans-Regular.ttf
