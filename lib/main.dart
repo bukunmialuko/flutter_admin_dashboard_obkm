@@ -1,6 +1,8 @@
 import 'package:admin_dashboard/src/res/font_family.dart';
 import 'package:flutter/material.dart';
 
+import 'src/pages/login/log_in_page.dart';
+
 void main() {
   runApp(const App());
 }
@@ -14,7 +16,7 @@ class App extends StatelessWidget {
       title: 'Wons',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: FontFamily.dmSans),
-      home: Container(),
+      home: const LoginPage(),
     );
   }
 }
