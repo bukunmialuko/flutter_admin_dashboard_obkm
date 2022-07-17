@@ -1,5 +1,6 @@
 import 'package:admin_dashboard/src/pages/login/log_in_page.dart';
 import 'package:admin_dashboard/src/pages/routes/routes.dart';
+import 'package:admin_dashboard/src/pages/signup/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
 import 'fade_route.dart';
@@ -11,9 +12,9 @@ var routes = (RouteSettings settings) {
         page: const LoginPage(),
       );
 
-    case PageRoutes.login:
+    case PageRoutes.signup:
       return FadeRoute(
-        page: const LoginPage(),
+        page: const SignupPage(),
       );
 
     default:
