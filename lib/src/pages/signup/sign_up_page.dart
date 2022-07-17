@@ -262,7 +262,8 @@ class _FormSection extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          const SliverPadding(padding: EdgeInsets.only(top: 200)),
         ],
       ),
     );
