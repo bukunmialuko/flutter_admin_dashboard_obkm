@@ -4,4 +4,6 @@ class PageRoutes {
   static const login = "/login/";
 
   static const signup = "/signup/";
+
+  static const recover = "/recover/";
 }

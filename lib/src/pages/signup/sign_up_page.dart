@@ -238,7 +238,9 @@ class _FormSection extends StatelessWidget {
                       "Create account",
                       style: TextStyle(color: AppColors.neutral, fontWeight: FontWeight.w500, fontSize: 16),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      GetIt.I.get<NavigationService>().to(routeName: PageRoutes.recover);
+                    },
                   ),
                   const SizedBox(height: 30),
                   Row(
@@ -250,7 +252,7 @@ class _FormSection extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          GetIt.I.get<NavigationService>().to(routeName: PageRoutes.signup);
+                          GetIt.I.get<NavigationService>().to(routeName: PageRoutes.login);
                         },
                         child: const Text(
                           " Log in",
