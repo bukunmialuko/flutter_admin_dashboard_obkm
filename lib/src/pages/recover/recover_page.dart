@@ -1,8 +1,11 @@
+import 'package:admin_dashboard/src/navigation/navigation_service.dart';
+import 'package:admin_dashboard/src/pages/routes/routes.dart';
 import 'package:admin_dashboard/src/res/colors.dart';
 import 'package:admin_dashboard/src/shared/exc_button.dart';
 import 'package:admin_dashboard/src/shared/input_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_it/get_it.dart';
 
 class RecoverPage extends StatelessWidget {
   const RecoverPage({Key? key}) : super(key: key);
@@ -58,7 +61,9 @@ class RecoverPage extends StatelessWidget {
                   "Reset Your Password",
                   style: TextStyle(color: AppColors.neutral, fontWeight: FontWeight.w400, fontSize: 14),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  GetIt.I.get<NavigationService>().to(routeName: PageRoutes.confirm);
+                },
               ),
             ],
           ),

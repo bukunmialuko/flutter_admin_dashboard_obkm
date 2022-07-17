@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/src/pages/confirm/confirm_page.dart';
 import 'package:admin_dashboard/src/pages/login/log_in_page.dart';
 import 'package:admin_dashboard/src/pages/recover/recover_page.dart';
 import 'package:admin_dashboard/src/pages/routes/routes.dart';
@@ -21,6 +22,11 @@ var routes = (RouteSettings settings) {
     case PageRoutes.recover:
       return FadeRoute(
         page: const RecoverPage(),
+      );
+
+    case PageRoutes.confirm:
+      return FadeRoute(
+        page: const ConfirmPage(),
       );
 
     default:
