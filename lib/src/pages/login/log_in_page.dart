@@ -194,11 +194,15 @@ class _FormSection extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
               ),
               TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.transparent,
+                  onSurface: Colors.transparent,
+                ),
                 onPressed: () {
                   GetIt.I.get<NavigationService>().to(routeName: PageRoutes.signup);
                 },
                 child: const Text(
-                  "  New Account",
+                  " New Account",
                   style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500, fontSize: 16),
                 ),
               )
