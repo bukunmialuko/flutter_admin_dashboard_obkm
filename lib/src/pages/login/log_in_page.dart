@@ -1,8 +1,11 @@
+import 'package:admin_dashboard/src/navigation/navigation_service.dart';
+import 'package:admin_dashboard/src/pages/routes/routes.dart';
 import 'package:admin_dashboard/src/res/colors.dart';
 import 'package:admin_dashboard/src/shared/exc_button.dart';
 import 'package:admin_dashboard/src/shared/input_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_it/get_it.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -185,15 +188,20 @@ class _FormSection extends StatelessWidget {
           const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 "Don’t have account yet?",
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
               ),
-              Text(
-                "  New Account",
-                style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500, fontSize: 16),
-              ),
+              TextButton(
+                onPressed: () {
+                  GetIt.I.get<NavigationService>().to(routeName: PageRoutes.signup);
+                },
+                child: const Text(
+                  "  New Account",
+                  style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500, fontSize: 16),
+                ),
+              )
             ],
           ),
         ],
