@@ -183,14 +183,6 @@
     }
 
     </style>
-
-    <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-
-    </script>
-    <!-- This script adds the flutter initialization JS code -->
-    <script src="flutter.js" defer></script>
 </head>
 <body>
 <!-- ========================= preloader start ========================= -->
@@ -211,26 +203,6 @@
     </div>
 </div>
 <!-- preloader end -->
-<script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function(engineInitializer) {
-        return engineInitializer.initializeEngine();
-      }).then(function(appRunner) {
-        window.setTimeout(fadeout, 500);
-        return appRunner.runApp();
-      });
-    });
-
-     function fadeout() {
-      document.querySelector('.preloader').style.opacity = '0';
-      document.querySelector('.preloader').style.display = 'none';
-    }
-
-</script>
+<script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
