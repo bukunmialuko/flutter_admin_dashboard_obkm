@@ -1,19 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  Future<dynamic> to({required String routeName}) {
-    return navigatorKey.currentState!.pushNamed(routeName);
+  Future<T?> to<T>({required String routeName}) {
+    return navigatorKey.currentState!.pushNamed<T>(routeName);
   }
 
-  void back() {
-    return navigatorKey.currentState!.pop();
+  void back<T>([T? result]) {
+    navigatorKey.currentState!.pop<T>(result);
   }
 
-  Future<dynamic> clearAllTo({required String routeName}) {
+  Future<T?> clearAllTo<T>({required String routeName}) {
     return navigatorKey.currentState!
-        .pushNamedAndRemoveUntil(routeName, (route) => false);
+        .pushNamedAndRemoveUntil<T>(routeName, (route) => false);
   }
 }

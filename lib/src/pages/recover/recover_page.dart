@@ -8,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 
 class RecoverPage extends StatelessWidget {
-  const RecoverPage({Key? key}) : super(key: key);
+  const RecoverPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,32 +24,30 @@ class RecoverPage extends StatelessWidget {
             children: [
               const SizedBox(height: 160),
               SvgPicture.asset(
-                "assets/svg/logo.svg",
+                'assets/svg/logo.svg',
                 width: 90,
                 height: 55.5,
               ),
               const SizedBox(height: 30),
               const Text(
-                "Recover",
+                'Recover',
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 25.63),
               ),
               const SizedBox(height: 60),
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Email Address",
+                  'Email Address',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                 ),
               ),
               const SizedBox(height: 9),
               InputText(
-                labelText: "example@gmail.com",
-                keyboardType: TextInputType.visiblePassword,
+                labelText: 'example@gmail.com',
+                keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {},
                 onSaved: (val) {},
                 textInputAction: TextInputAction.done,
-                isPassword: false,
-                enabled: true,
               ),
               const SizedBox(height: 25),
               WonsButton(
@@ -57,13 +55,19 @@ class RecoverPage extends StatelessWidget {
                 width: 502,
                 verticalPadding: 0,
                 color: AppColors.primary,
-                child: const Text(
-                  "Reset Your Password",
-                  style: TextStyle(color: AppColors.neutral, fontWeight: FontWeight.w400, fontSize: 14),
-                ),
                 onPressed: () {
-                  GetIt.I.get<NavigationService>().to(routeName: PageRoutes.confirm);
+                  GetIt.I
+                      .get<NavigationService>()
+                      .to<void>(routeName: PageRoutes.confirm);
                 },
+                child: const Text(
+                  'Reset Your Password',
+                  style: TextStyle(
+                    color: AppColors.neutral,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                  ),
+                ),
               ),
             ],
           ),

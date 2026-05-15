@@ -1,11 +1,9 @@
 class PageRoutes {
-  static const root = "/";
+  PageRoutes._();
 
-  static const login = "/login/";
-
-  static const signup = "/signup/";
-
-  static const recover = "/recover/";
-
-  static const confirm = "/confirm/";
+  static const String root = '/';
+  static const String login = '/login/';
+  static const String signup = '/signup/';
+  static const String recover = '/recover/';
+  static const String confirm = '/confirm/';
 }

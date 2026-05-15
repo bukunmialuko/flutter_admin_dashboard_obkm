@@ -1,20 +1,19 @@
 import 'package:admin_dashboard/src/di/service_locator.dart';
+import 'package:admin_dashboard/src/navigation/navigation_service.dart';
 import 'package:admin_dashboard/src/navigation/routes.dart';
+import 'package:admin_dashboard/src/pages/routes/routes.dart';
 import 'package:admin_dashboard/src/res/font_family.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import 'src/navigation/navigation_service.dart';
-import 'src/pages/login/log_in_page.dart';
-import 'src/pages/routes/routes.dart';
-
-void main() async {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await ServiceLocator().setUp();
   runApp(const App());
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,6 @@ class App extends StatelessWidget {
       navigatorKey: GetIt.I.get<NavigationService>().navigatorKey,
       initialRoute: PageRoutes.root,
       onGenerateRoute: routes,
-      home: const LoginPage(),
     );
   }
 }

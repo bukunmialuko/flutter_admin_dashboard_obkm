@@ -12,18 +12,18 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColors.background,
       body: Column(
         children: [
           Expanded(
             child: Row(
-              children: const [
+              children: [
                 _FormSection(),
                 _ImageSection(),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -31,7 +31,7 @@ class LoginPage extends StatelessWidget {
 }
 
 class _FormSection extends StatelessWidget {
-  const _FormSection({Key? key}) : super(key: key);
+  const _FormSection();
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +43,13 @@ class _FormSection extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(
-            "assets/svg/logo.svg",
+            'assets/svg/logo.svg',
             width: 90,
             height: 55.5,
           ),
           const SizedBox(height: 30),
           const Text(
-            "Log in",
+            'Log in',
             style: TextStyle(fontWeight: FontWeight.w700, fontSize: 25.63),
           ),
           const SizedBox(height: 41),
@@ -60,25 +60,29 @@ class _FormSection extends StatelessWidget {
                 width: 162,
                 horizontalPadding: 0,
                 color: AppColors.background,
+                onPressed: () {},
                 child: Row(
                   children: [
                     SizedBox(
                       width: 18,
                       height: 18,
                       child: SvgPicture.asset(
-                        "assets/svg/google.svg",
+                        'assets/svg/google.svg',
                         width: 18,
                         height: 18,
                       ),
                     ),
                     const SizedBox(width: 18),
                     const Text(
-                      "Google",
-                      style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500, fontSize: 16),
-                    )
+                      'Google',
+                      style: TextStyle(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
+                    ),
                   ],
                 ),
-                onPressed: () {},
               ),
               const SizedBox(width: 22),
               WonsButton(
@@ -86,34 +90,36 @@ class _FormSection extends StatelessWidget {
                 width: 162,
                 horizontalPadding: 0,
                 color: AppColors.background,
+                onPressed: () {},
                 child: Row(
                   children: [
                     SizedBox(
                       width: 18,
                       height: 18,
-                      child: SvgPicture.asset(
-                        "assets/svg/facebook.svg",
-                      ),
+                      child: SvgPicture.asset('assets/svg/facebook.svg'),
                     ),
                     const SizedBox(width: 18),
                     const Text(
-                      "Facebook",
-                      style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500, fontSize: 16),
-                    )
+                      'Facebook',
+                      style: TextStyle(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
+                    ),
                   ],
                 ),
-                onPressed: () {},
-              )
+              ),
             ],
           ),
           const SizedBox(height: 25),
-          Row(
-            children: const [
+          const Row(
+            children: [
               Flexible(child: Divider()),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 13),
                 child: Text(
-                  "Or",
+                  'Or',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
                 ),
               ),
@@ -124,52 +130,56 @@ class _FormSection extends StatelessWidget {
           const Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Email Address",
+              'Email Address',
               style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
             ),
           ),
           const SizedBox(height: 9),
           InputText(
-            labelText: "example@gmail.com",
-            keyboardType: TextInputType.visiblePassword,
+            labelText: 'example@gmail.com',
+            keyboardType: TextInputType.emailAddress,
             onChanged: (value) {},
             onSaved: (val) {},
-            textInputAction: TextInputAction.done,
-            isPassword: false,
-            enabled: true,
+            textInputAction: TextInputAction.next,
           ),
           const SizedBox(height: 20),
           const Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Password",
+              'Password',
               style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
             ),
           ),
           const SizedBox(height: 9),
           InputText(
-            labelText: "********",
+            labelText: '********',
             keyboardType: TextInputType.visiblePassword,
             onChanged: (value) {},
             onSaved: (val) {},
             textInputAction: TextInputAction.done,
             isPassword: true,
-            enabled: true,
-            suffixIcon: visibilityToggle(togglePasswordVisibility, true),
+            suffixIcon: visibilityToggle(null, true),
           ),
           const SizedBox(height: 25),
           Row(
             children: [
-              SizedBox(width: 20, child: Checkbox(value: false, onChanged: (newValue) {})),
+              SizedBox(
+                width: 20,
+                child: Checkbox(value: false, onChanged: (newValue) {}),
+              ),
               const SizedBox(width: 10),
               const Text(
-                "Remember me",
+                'Remember me',
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
               ),
               const Spacer(),
               const Text(
-                "Reset Password?",
-                style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500, fontSize: 16),
+                'Reset Password?',
+                style: TextStyle(
+                  color: AppColors.primary,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),
               ),
             ],
           ),
@@ -179,18 +189,22 @@ class _FormSection extends StatelessWidget {
             width: 348,
             verticalPadding: 0,
             color: AppColors.primary,
-            child: const Text(
-              "Log in",
-              style: TextStyle(color: AppColors.neutral, fontWeight: FontWeight.w500, fontSize: 16),
-            ),
             onPressed: () {},
+            child: const Text(
+              'Log in',
+              style: TextStyle(
+                color: AppColors.neutral,
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+              ),
+            ),
           ),
           const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Don’t have account yet?",
+                'Don’t have account yet?',
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
               ),
               TextButton(
@@ -199,32 +213,36 @@ class _FormSection extends StatelessWidget {
                   disabledForegroundColor: Colors.transparent,
                 ),
                 onPressed: () {
-                  GetIt.I.get<NavigationService>().to(routeName: PageRoutes.signup);
+                  GetIt.I
+                      .get<NavigationService>()
+                      .to<void>(routeName: PageRoutes.signup);
                 },
                 child: const Text(
-                  " New Account",
-                  style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500, fontSize: 16),
+                  ' New Account',
+                  style: TextStyle(
+                    color: AppColors.primary,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ],
       ),
     );
   }
-
-  togglePasswordVisibility() {}
 }
 
 class _ImageSection extends StatelessWidget {
-  const _ImageSection({Key? key}) : super(key: key);
+  const _ImageSection();
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Center(
         child: SvgPicture.asset(
-          "assets/svg/login.svg",
+          'assets/svg/login.svg',
           width: 647,
           height: 602,
         ),

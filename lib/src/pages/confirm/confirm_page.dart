@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ConfirmPage extends StatelessWidget {
-  const ConfirmPage({Key? key}) : super(key: key);
+  const ConfirmPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +23,14 @@ class ConfirmPage extends StatelessWidget {
                 width: 220,
                 height: 199,
                 child: SvgPicture.asset(
-                  "assets/svg/confirm.svg",
+                  'assets/svg/confirm.svg',
                   width: 220,
                   height: 199,
                 ),
               ),
               const SizedBox(height: 53),
               const Text(
-                "Your account successfully created.",
+                'Your account successfully created.',
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 25.63),
               ),
               const SizedBox(height: 36),
@@ -39,11 +39,15 @@ class ConfirmPage extends StatelessWidget {
                 width: 169,
                 verticalPadding: 0,
                 color: AppColors.primary,
-                child: const Text(
-                  "Go to Home",
-                  style: TextStyle(color: AppColors.neutral, fontWeight: FontWeight.w400, fontSize: 14),
-                ),
                 onPressed: () {},
+                child: const Text(
+                  'Go to Home',
+                  style: TextStyle(
+                    color: AppColors.neutral,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                  ),
+                ),
               ),
             ],
           ),

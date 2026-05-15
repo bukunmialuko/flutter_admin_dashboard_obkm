@@ -1,5 +1,5 @@
 class FontFamily {
   FontFamily._();
 
-  static const String dmSans = "DMSans";
+  static const String dmSans = 'DMSans';
 }

@@ -7,35 +7,26 @@ import 'package:flutter/material.dart';
 
 import 'fade_route.dart';
 
-var routes = (RouteSettings settings) {
+Route<dynamic>? routes(RouteSettings settings) {
   switch (settings.name) {
+    case PageRoutes.root:
     case PageRoutes.login:
-      return FadeRoute(
-        page: const LoginPage(),
-      );
+      return FadeRoute<void>(page: const LoginPage());
 
     case PageRoutes.signup:
-      return FadeRoute(
-        page: const SignupPage(),
-      );
+      return FadeRoute<void>(page: const SignupPage());
 
     case PageRoutes.recover:
-      return FadeRoute(
-        page: const RecoverPage(),
-      );
+      return FadeRoute<void>(page: const RecoverPage());
 
     case PageRoutes.confirm:
-      return FadeRoute(
-        page: const ConfirmPage(),
-      );
+      return FadeRoute<void>(page: const ConfirmPage());
 
     default:
-      return FadeRoute(
+      return FadeRoute<void>(
         page: const Scaffold(
-          body: Center(
-            child: Text("404: Page Not Found"),
-          ),
+          body: Center(child: Text('404: Page Not Found')),
         ),
       );
   }
-};
+}
