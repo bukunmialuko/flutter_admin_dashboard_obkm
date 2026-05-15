@@ -13,43 +13,52 @@ class WonsButton extends StatelessWidget {
   final double height;
   final double width;
   final double? borderRadius;
-  const WonsButton(
-      {Key? key,
-      this.onPressed,
-      this.child,
-      this.text,
-      this.fontSize,
-      this.color,
-      this.borderColor,
-      this.textColor,
-      this.verticalPadding,
-      this.horizontalPadding,
-      this.borderRadius,
-      required this.height,
-      required this.width})
-      : assert(text != null || child != null),
-        super(key: key);
+
+  const WonsButton({
+    super.key,
+    this.onPressed,
+    this.child,
+    this.text,
+    this.fontSize,
+    this.color,
+    this.borderColor,
+    this.textColor,
+    this.verticalPadding,
+    this.horizontalPadding,
+    this.borderRadius,
+    required this.height,
+    required this.width,
+  }) : assert(text != null || child != null);
 
   @override
   Widget build(BuildContext context) {
+    final Color background = color ?? AppColors.background;
     return ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-            primary: color ?? AppColors.background,
-            onSurface: color ?? AppColors.background,
-            elevation: 0.0,
-            shadowColor: Colors.transparent,
-            padding: EdgeInsets.symmetric(vertical: verticalPadding ?? 15, horizontal: horizontalPadding ?? 0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius ?? 10),
-              side: BorderSide(
-                  color: onPressed == null ? Colors.transparent : borderColor ?? color ?? AppColors.background),
-            ),
-            minimumSize: Size(width, height)),
-        child: text != null ? Text(text!, style: buttonTextStyle()) : child);
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: background,
+        disabledBackgroundColor: background,
+        elevation: 0.0,
+        shadowColor: Colors.transparent,
+        padding: EdgeInsets.symmetric(
+          vertical: verticalPadding ?? 15,
+          horizontal: horizontalPadding ?? 0,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius ?? 10),
+          side: BorderSide(
+            color: onPressed == null
+                ? Colors.transparent
+                : borderColor ?? background,
+          ),
+        ),
+        minimumSize: Size(width, height),
+      ),
+      child: text != null ? Text(text!, style: _buttonTextStyle()) : child,
+    );
   }
 
-  buttonTextStyle() {
+  TextStyle _buttonTextStyle() {
     return TextStyle(
       fontFamily: 'Gilroy',
       fontSize: fontSize ?? 16,
@@ -60,7 +69,10 @@ class WonsButton extends StatelessWidget {
   }
 }
 
-Widget visibilityToggle(Function? onToggle, bool _isHidden) => InkWell(
-      onTap: onToggle != null ? () => onToggle() : null,
-      child: Icon(_isHidden ? Icons.visibility : Icons.visibility_off, color: AppColors.primary),
+Widget visibilityToggle(VoidCallback? onToggle, bool isHidden) => InkWell(
+      onTap: onToggle,
+      child: Icon(
+        isHidden ? Icons.visibility : Icons.visibility_off,
+        color: AppColors.primary,
+      ),
     );

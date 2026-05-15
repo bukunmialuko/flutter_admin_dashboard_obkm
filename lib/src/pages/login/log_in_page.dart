@@ -195,8 +195,8 @@ class _FormSection extends StatelessWidget {
               ),
               TextButton(
                 style: TextButton.styleFrom(
-                  primary: Colors.transparent,
-                  onSurface: Colors.transparent,
+                  foregroundColor: Colors.transparent,
+                  disabledForegroundColor: Colors.transparent,
                 ),
                 onPressed: () {
                   GetIt.I.get<NavigationService>().to(routeName: PageRoutes.signup);

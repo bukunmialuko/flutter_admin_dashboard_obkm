@@ -45,85 +45,83 @@ class InputText extends StatefulWidget {
 }
 
 class _InputTextState extends State<InputText> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
+  late final bool _ownsFocusNode;
 
   @override
   void initState() {
-    _focusNode = widget.focusNode ?? FocusNode();
-    _focusNode.addListener(() {
-      if (!_focusNode.hasFocus) {
-        setState(() {});
-      }
-    });
     super.initState();
+    _ownsFocusNode = widget.focusNode == null;
+    _focusNode = widget.focusNode ?? FocusNode();
+    _focusNode.addListener(_handleFocusChange);
   }
 
   @override
   void dispose() {
-    _focusNode.dispose();
+    _focusNode.removeListener(_handleFocusChange);
+    if (_ownsFocusNode) {
+      _focusNode.dispose();
+    }
     super.dispose();
+  }
+
+  void _handleFocusChange() {
+    if (!_focusNode.hasFocus && mounted) {
+      setState(() {});
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: textFieldTextStyle(context),
+      style: _textFieldTextStyle(context),
       initialValue: widget.initialValue,
       controller: widget.controller,
       enabled: widget.enabled,
       focusNode: _focusNode,
       decoration: InputDecoration(
-          suffixIcon: widget.suffixIcon,
-          prefix: widget.prefixIcon,
-          // prefixIconConstraints: BoxConstraints(maxHeight: 40.w),
-          // labelText: widget.labelText,
-          // labelStyle: labelStyle(context),
-          hintText: widget.textPlaceholder ?? widget.labelText,
-          hintStyle: textFieldPlaceholderTextStyle(context),
-          isDense: true,
-          filled: true,
-          fillColor: AppColors.background,
-          // contentPadding: EdgeInsets.all(height * 0.015),
-          focusedBorder: AppStyles.focusedBorder,
-          disabledBorder: AppStyles.focusBorder,
-          enabledBorder: AppStyles.focusBorder,
-          errorBorder: AppStyles.focusErrorBorder,
-          focusedErrorBorder: AppStyles.focusErrorBorder,
-          errorStyle: errorTextStyle(context)),
+        suffixIcon: widget.suffixIcon,
+        prefix: widget.prefixIcon,
+        hintText: widget.textPlaceholder ?? widget.labelText,
+        hintStyle: _textFieldPlaceholderTextStyle(context),
+        isDense: true,
+        filled: true,
+        fillColor: AppColors.background,
+        focusedBorder: AppStyles.focusedBorder,
+        disabledBorder: AppStyles.focusBorder,
+        enabledBorder: AppStyles.focusBorder,
+        errorBorder: AppStyles.focusErrorBorder,
+        focusedErrorBorder: AppStyles.focusErrorBorder,
+        errorStyle: errorTextStyle(context),
+      ),
       textInputAction: widget.textInputAction,
       keyboardType: widget.keyboardType,
       obscureText: widget.isPassword,
       onSaved: widget.onSaved,
       onEditingComplete: () {
-        setState(() {
-          FocusScope.of(context).unfocus();
-        });
-        if (widget.onEditingComplete != null) widget.onEditingComplete!();
+        FocusScope.of(context).unfocus();
+        widget.onEditingComplete?.call();
       },
       onChanged: widget.onChanged,
       validator: widget.validator,
       onTap: () {
-        setState(() {
-          FocusScope.of(context).requestFocus(_focusNode);
-        });
-        if (widget.onTap != null) widget.onTap!();
+        FocusScope.of(context).requestFocus(_focusNode);
+        widget.onTap?.call();
       },
     );
   }
 
-  TextStyle? labelStyle(context) {
-    return _focusNode.hasFocus ? labelTextFieldTextStyle(context) : textFieldPlaceholderTextStyle(context);
-  }
+  TextStyle _textFieldPlaceholderTextStyle(BuildContext context) => TextStyle(
+        fontSize: 14,
+        color: Theme.of(context).hintColor,
+        fontWeight: FontWeight.w600,
+        height: 1.4,
+      );
 
-  labelTextFieldTextStyle(context) =>
-      TextStyle(fontSize: 14, color: Theme.of(context).primaryColor, fontWeight: FontWeight.w600, height: 1.4);
-
-  textFieldPlaceholderTextStyle(context) =>
-      TextStyle(fontSize: 14, color: Theme.of(context).hintColor, fontWeight: FontWeight.w600, height: 1.4);
-
-  errorTextStyle(context) =>
-      TextStyle(fontSize: 10, color: Theme.of(context).errorColor, fontWeight: FontWeight.w500, height: 1.4);
-
-  textFieldTextStyle(context) => TextStyle(
-      fontSize: 14, color: Theme.of(context).textTheme.bodyText1!.color, fontWeight: FontWeight.w500, height: 1.4);
+  TextStyle _textFieldTextStyle(BuildContext context) => TextStyle(
+        fontSize: 14,
+        color: Theme.of(context).textTheme.bodyLarge?.color,
+        fontWeight: FontWeight.w500,
+        height: 1.4,
+      );
 }

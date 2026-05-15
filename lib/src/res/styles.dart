@@ -4,37 +4,46 @@ import 'colors.dart';
 import 'dimensions.dart';
 
 class AppStyles {
-  static var addressBorder = OutlineInputBorder(
+  AppStyles._();
+
+  static final OutlineInputBorder addressBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(Dimensions.radius),
     borderSide: const BorderSide(color: AppColors.background),
   );
-  static var underLineBorder = const UnderlineInputBorder(
+
+  static const UnderlineInputBorder underLineBorder = UnderlineInputBorder(
     borderSide: BorderSide(color: Colors.white),
   );
 
-  static var focusedTransparentBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(Dimensions.radius),
-    borderSide: const BorderSide(color: Colors.transparent),
-  );
-  static var energyBorder = OutlineInputBorder(
+  static final OutlineInputBorder focusedTransparentBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(Dimensions.radius),
     borderSide: const BorderSide(color: Colors.transparent),
   );
 
-  static var focusBorder = OutlineInputBorder(
+  static final OutlineInputBorder energyBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(Dimensions.radius),
+    borderSide: const BorderSide(color: Colors.transparent),
+  );
+
+  static final OutlineInputBorder focusBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(Dimensions.radius),
     borderSide: const BorderSide(color: AppColors.background, width: 0.3),
   );
-  static var focusedBorder = OutlineInputBorder(
+
+  static final OutlineInputBorder focusedBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(Dimensions.radius),
     borderSide: const BorderSide(color: AppColors.primary, width: 0.3),
   );
 
-  static var focusErrorBorder = OutlineInputBorder(
+  static final OutlineInputBorder focusErrorBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(Dimensions.radius),
     borderSide: const BorderSide(color: AppColors.secondary),
   );
 }
 
-errorTextStyle(context) =>
-    TextStyle(fontSize: 10, color: Theme.of(context).errorColor, fontWeight: FontWeight.w500, height: 1.4);
+TextStyle errorTextStyle(BuildContext context) => TextStyle(
+      fontSize: 10,
+      color: Theme.of(context).colorScheme.error,
+      fontWeight: FontWeight.w500,
+      height: 1.4,
+    );
